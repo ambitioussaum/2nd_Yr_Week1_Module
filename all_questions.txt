@@ -1,0 +1,149 @@
+all_questions.c
+#include <stdio.h>
+
+//-----------------------------------------------------------------------------------------
+//Problem 1- Solid Square
+//-----------------------------------------------------------------------------------------
+void question1_square() {
+    for (int i = 1; i <= 5; i++) {
+        for (int j = 1; j <= 5; j++) {
+            printf("*");
+        }
+        printf("\n");
+    }
+}
+
+//-----------------------------------------------------------------------------------------
+//Problem 2- Hollow Square
+//-----------------------------------------------------------------------------------------
+void question2_hollow_square() {
+    for (int i = 1; i <= 5; i++) {
+        for (int j = 1; j <= 5; j++) {
+            if (i == 1 || i == 5 || j == 1 || j == 5) {
+                printf("*");
+            } else {
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
+}
+
+//-----------------------------------------------------------------------------------------
+//Problem 3- Triangle
+//-----------------------------------------------------------------------------------------
+void question3_triangle() {
+    for (int i = 1; i <= 5; i++) {
+        for (int j = 1; j <= i; j++) {
+            printf("*");
+        }
+        printf("\n");
+    }
+}
+
+//-----------------------------------------------------------------------------------------
+//Problem 4- Inverted Triangle
+//-----------------------------------------------------------------------------------------
+void question4_inverted_triangle() {
+    for (int i = 5; i >= 1; i--) {
+        for (int j = 1; j <= i; j++) {
+            printf("*");
+        }
+        printf("\n");
+    }
+}
+
+//-----------------------------------------------------------------------------------------
+//Problem 5- Pyramid
+//-----------------------------------------------------------------------------------------
+void question5_pyramid() {
+    int n = 5;
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= n - i; j++) printf(" ");
+        for (int k = 1; k <= (2 * i - 1); k++) printf("*");
+        printf("\n");
+    }
+}
+
+//-----------------------------------------------------------------------------------------
+//Problem 6- Inverted Pyramid
+//-----------------------------------------------------------------------------------------
+void question6_inverted_pyramid() {
+    int n = 6;
+    for (int i = n; i >= 1; i--) {
+        for (int j = 1; j <= n - i; j++) printf(" ");
+        for (int k = 1; k <= (2 * i - 1); k++) printf("*");
+        printf("\n");
+    }
+}
+
+//-----------------------------------------------------------------------------------------
+//Problem 7- Half Diamond
+//-----------------------------------------------------------------------------------------
+void question7_half_diamond() {
+    int n = 5;
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= i; j++) printf("*");
+        printf("\n");
+    }
+    for (int i = n - 1; i >= 1; i--) {
+        for (int j = 1; j <= i; j++) printf("*");
+        printf("\n");
+    }
+}
+
+//-----------------------------------------------------------------------------------------
+//Problem 8- Full Diamond
+//-----------------------------------------------------------------------------------------
+void question8_full_diamond() {
+    int n = 5;
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= n - i; j++) printf(" ");
+        for (int k = 1; k <= (2 * i - 1); k++) printf("*");
+        printf("\n");
+    }
+    for (int i = n - 1; i >= 1; i--) {
+        for (int j = 1; j <= n - i; j++) printf(" ");
+        for (int k = 1; k <= (2 * i - 1); k++) printf("*");
+        printf("\n");
+    }
+}
+
+//-----------------------------------------------------------------------------------------
+// MAIN FUNCTION
+//-----------------------------------------------------------------------------------------
+int main() {
+    printf("--- Running Problem 1 (Solid Square) ---\n");
+    question1_square();
+    printf("\n");
+
+    printf("--- Running Problem 2 (Hollow Square) ---\n");
+    question2_hollow_square();
+    printf("\n");
+
+    printf("--- Running Problem 3 (Triangle) ---\n");
+    question3_triangle();
+    printf("\n");
+
+    printf("--- Running Problem 4 (Inverted Triangle) ---\n");
+    question4_inverted_triangle();
+    printf("\n");
+
+    printf("--- Running Problem 5 (Pyramid) ---\n");
+    question5_pyramid();
+    printf("\n");
+
+    printf("--- Running Problem 6 (Inverted Pyramid) ---\n");
+    question6_inverted_pyramid();
+    printf("\n");
+
+    printf("--- Running Problem 7 (Half Diamond) ---\n");
+    question7_half_diamond();
+    printf("\n");
+
+    printf("--- Running Problem 8 (Full Diamond) ---\n");
+    question8_full_diamond();
+    printf("\n");
+
+    return 0;
+}

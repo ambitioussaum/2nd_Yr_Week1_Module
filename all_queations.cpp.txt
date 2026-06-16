@@ -1,0 +1,162 @@
+all_queations.cpp
+
+#include <iostream>
+using namespace std;
+//-------------------------------------------------------------------------------------
+//Problem 1- Square
+//--------------------------------------------------------------------------------------
+void question1_square() {
+    // Loop for 5 rows
+    for (int i = 1; i <= 5; i++) {
+        // Loop for 5 columns
+        for (int j = 1; j <= 5; j++) {
+            cout << "*";
+        }
+        cout << endl; // Move to the next line
+    }
+}//-------------------------------------------------------------------------------------
+//Problem 2- Hollow Square
+//--------------------------------------------------------------------------------------
+void question2_hollow_square() {
+    // Loop for rows
+    for (int i = 1; i <= 5; i++) {
+        // Loop for columns
+        for (int j = 1; j <= 5; j++) {
+            // Print a star only on the borders (first/last row, first/last column)
+            if (i == 1 || i == 5 || j == 1 || j == 5) {
+                cout << "*";
+            } else {
+                cout << " "; // Print a space inside the hollow part
+            }
+        }
+        cout << endl; // Move to the next line
+    }
+}
+//-----------------------------------------------------------------------------------------
+//Problem 3- Triangle
+//-----------------------------------------------------------------------------------------
+void question3_triangle() {
+    // Loop for rows (goes from 1 up to 5)
+    for (int i = 1; i <= 5; i++) {
+        for (int j = 1; j <= i; j++) {
+            cout << "*";
+        }
+        cout << endl; // Move to the next line
+    }
+}
+//-----------------------------------------------------------------------------------------
+//Problem 4-  Inverted Triangle
+//-----------------------------------------------------------------------------------------
+void question4_inverted_triangle() {
+    // Outer loop counts down from 5 to 1
+    for (int i = 5; i >= 1; i--) {
+        // Inner loop prints stars based on the row number
+        for (int j = 1; j <= i; j++) {
+            cout << "*";void question5_square() {
+    // Loop for 5 rows
+    for (int i = 1; i <= 5; i++) {
+        // Loop for 5 columns
+        for (int j = 1; j <= 5; j++) {
+            cout << "*";
+        }
+        cout << endl; // Move to the next line
+    }
+}
+        }
+        cout << endl; // Move to the next line
+    }
+}
+//-----------------------------------------------------------------------------------------
+//Problem 5- Pyramid
+//-----------------------------------------------------------------------------------------
+void question5_pyramid() {
+    int n = 5;
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= n - i; j++) cout << " ";
+        for (int k = 1; k <= (2 * i - 1); k++) cout << "*";
+        cout << endl;
+    }
+}
+
+//-----------------------------------------------------------------------------------------
+//Problem 6- Inverted Pyramid
+//----------------------------------------------------------------------------------------
+void question6_inverted_pyramid() {
+    int n = 6;
+    for (int i = n; i >= 1; i--) {
+        for (int j = 1; j <= n - i; j++) cout << " ";
+        for (int k = 1; k <= (2 * i - 1); k++) cout << "*";
+        cout << endl;
+    }
+}
+
+//-----------------------------------------------------------------------------------------
+//Problem 7- Half Diamond
+//-----------------------------------------------------------------------------------------
+void question7_half_diamond() {
+    int n = 5;
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= i; j++) cout << "*";
+        cout << endl;
+    }
+    for (int i = n - 1; i >= 1; i--) {
+        for (int j = 1; j <= i; j++) cout << "*";
+        cout << endl;
+    }
+}
+
+//-----------------------------------------------------------------------------------------
+//Problem 8- Full Diamond
+//-----------------------------------------------------------------------------------------
+void question8_full_diamond() {
+    int n = 5;
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= n - i; j++) cout << " ";
+        for (int k = 1; k <= (2 * i - 1); k++) cout << "*";
+        cout << endl;
+    }
+    for (int i = n - 1; i >= 1; i--) {
+        for (int j = 1; j <= n - i; j++) cout << " ";
+        for (int k = 1; k <= (2 * i - 1); k++) cout << "*";
+        cout << endl;
+    }
+}
+
+//-----------------------------------------------------------------------------------------
+// MAIN FUNCTION
+//-----------------------------------------------------------------------------------------
+int main() {
+    cout << "--- Running Problem 1 (Square) ---\n";
+    question1_square();
+    cout << "\n";
+
+    cout << "--- Running Problem 2 (Hollow Square) ---\n";
+    question2_hollow_square();
+    cout << "\n";
+
+    cout << "--- Running Problem 3 (Triangle) ---\n";
+    question3_triangle();
+    cout << "\n";
+
+    cout << "--- Running Problem 4 (Inverted Triangle) ---\n";
+    question4_inverted_triangle();
+    cout << "\n";
+
+    cout << "--- Running Problem 5 (Pyramid) ---\n";
+    question5_pyramid();
+    cout << "\n";
+
+    cout << "--- Running Problem 6 (Inverted Pyramid) ---\n";
+    question6_inverted_pyramid();
+    cout << "\n";
+
+    cout << "--- Running Problem 7 (Half Diamond) ---\n";
+    question7_half_diamond();
+    cout << "\n";
+
+    cout << "--- Running Problem 8 (Full Diamond) ---\n";
+    question8_full_diamond();
+    cout << "\n";
+
+    return 0;
+}
