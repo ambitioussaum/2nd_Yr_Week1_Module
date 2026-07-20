@@ -29,102 +29,137 @@ Pattern printing is a classic approach used to build strong foundational skills 
 
 ### 1. Square
 text
-***
-***
-***
+*****
+*****
+*****
+*****
+*****
+
 
  * **Logic & Approach:** Generates a uniform matrix where the row bounds match the column bounds (N \times N). Runs a standard outer loop for rows from 1 to N, with an inner loop running from 1 to N to unconditionally print a star (*) at every index.
- * **Dry Run (N=3):**
-   * **Pass 1 (i=1):** j runs from 1 \rightarrow 3. Prints: ***
-   * **Pass 2 (i=2):** j runs from 1 \rightarrow 3. Prints: ***
-   * **Pass 3 (i=3):** j runs from 1 \rightarrow 3. Prints: ***
+ * **Dry Run (N=5):**
+   * **Pass 1 (i=1):** j runs from 1 \rightarrow 5. Prints: *****
+   * **Pass 2 (i=2):** j runs from 1 \rightarrow 5. Prints: *****
+   * **Pass 3 (i=3):** j runs from 1 \rightarrow 5. Prints: *****
+   * **Pass 4 (i=4):** j runs from 1 \rightarrow 5. Prints: *****
+   * **Pass 5 (i=5):** j runs from 1 \rightarrow 5. Prints: *****
 ### 2. Hollow Square
 text
-* * *
-*   *
-* * *
+* * * * *
+*       *  
+*       *
+*       *
+* * * * *
+
 
  * **Logic & Approach:** Evaluates an N \times N matrix but filters the print statements using an edge boundary conditional check. A star (*) is drawn *only* if the element resides on the first row, last row, first column, or last column (i == 1 || i == N || j == 1 || j == N). All inner cells default to a blank space ( ).
- * **Dry Run (N=4):**
-   * **Pass 1 (i=1):** Top boundary active \rightarrow Prints ****
-   * **Pass 2 (i=2):** Middle row \rightarrow j=1 (Star), j=2,3 (Spaces), j=4 (Star) \rightarrow Prints *  *
-   * **Pass 3 (i=3):** Middle row \rightarrow j=1 (Star), j=2,3 (Spaces), j=4 (Star) \rightarrow Prints *  *
-   * **Pass 4 (i=4):** Bottom boundary active \rightarrow Prints ****
+ * **Dry Run (N=5):**
+   * **Pass 1 (i=1):** Top boundary active \rightarrow Prints *****
+   * **Pass 2 (i=2):** Middle row \rightarrow j=1 (Star), j=2,3,4 (Spaces), j=5 (Star) \rightarrow Prints *   *
+   * **Pass 3 (i=3):** Middle row \rightarrow j=1 (Star), j=2,3,4 (Spaces), j=5 (Star) \rightarrow Prints *   *
+   * **Pass 4 (i=4):** Middle row \rightarrow j=1 (Star), j=2,3,4 (Spaces), j=5 (Star) \rightarrow Prints *   *
+   * **Pass 5 (i=5):** Bottom boundary active \rightarrow Prints ******
 ### 3. Triangle
 text
 *
 **
 ***
+****
+*****
 
  **Logic & Approach:** Builds a linear growing structure where row length scales linearly with the index. The outer loop ticks up from 1 to N, forcing the inner loop boundaries to evaluate dynamically based on the current row height constraint (j <= i).
- * **Dry Run (N=3):**
-   * **Pass 1 (i=1):** j \le 1 \rightarrow Prints 1 star: *
+ * **Dry Run (N=5):**
+   * **Pass 1 (i=1):** j \le 1 \rightarrow Prints 1 star:  *
    * **Pass 2 (i=2):** j \le 2 \rightarrow Prints 2 stars: **
    * **Pass 3 (i=3):** j \le 3 \rightarrow Prints 3 stars: ***
+   * **Pass 4 (i=4):** j \le 4 \rightarrow Prints 4 stars: ****
+   * **Pass 5 (i=5):** j \le 5 \rightarrow Prints 5 stars: *****
 ### 4. Inverted Triangle
 text
+*****
+****
 ***
 **
 *
 
 *    **Logic & Approach:** A vertical inversion of the standard triangle. The structural logic operates by shifting the outer loop into reverse (i = N; i >= 1; i--), letting the inner loop expression j <= i continuously shrink the star counts row-by-row.
- * **Dry Run (N=3):**
-   * **Pass 1 (i=3):** j \le 3 \rightarrow Prints 3 stars: ***
-   * **Pass 2 (i=2):** j \le 2 \rightarrow Prints 2 stars: **
-   * **Pass 3 (i=1):** j \le 1 \rightarrow Prints 1 star: *
+ * **Dry Run (N=5):**
+   * **Pass 1 (i=5):** j \le 5 \rightarrow Prints 5 stars: *****
+   * **Pass 2 (i=4):** j \le 4 \rightarrow Prints 4 stars: ****
+   * **Pass 3 (i=3):** j \le 3 \rightarrow Prints 3 stars:  ***
+   * **Pass 4 (i=2):** j \le 2 \rightarrow Prints 2 stars:  **
+   * **Pass 5 (i=1):** j \le 1 \rightarrow Prints 1 star:  *
 ### 5. Pyramid
 text
-  *
- ***
-*****
+    *
+   ***
+  *****
+ *******
+*********
 
 
  * **Logic & Approach:** Uses exact calculations for centering text block spaces relative to the current row index. For any given row i from 1 to N, the algorithm runs two independent loops sequentially:
    1. Print N - i leading filler spaces.
    2. Print 2 * i - 1 center stars (generating odd number lines: 1, 3, 5...).
- * **Dry Run (N=3):**
-   * **Pass 1 (i=1):** Spaces (3-1=2), Stars (2(1)-1=1) \rightarrow   *
-   * **Pass 2 (i=2):** Spaces (3-2=1), Stars (2(2)-1=3) \rightarrow  ***
-   * **Pass 3 (i=3):** Spaces (3-3=0), Stars (2(3)-1=5) \rightarrow *****
+ * **Dry Run (N=5):**
+   * **Pass 1 (i=1):** Spaces (5-1=4), Stars (2(1)-1=1) \rightarrow     *
+   * **Pass 2 (i=2):** Spaces (5-2=3), Stars (2(2)-1=3) \rightarrow    ***
+   * **Pass 3 (i=3):** Spaces (5-3=2), Stars (2(3)-1=5) \rightarrow   *****
+   * **Pass 4 (i=4):** Spaces (5-4=1), Stars (2(4)-1=7) \rightarrow  *******
+   * **Pass 5 (i=4):** Spaces (5-5=0), Stars (2(5)-1=9) \rightarrow *********
 ### 6. Inverted Pyramid
 text
- *****
-  ***
-   *
+*********
+ *******
+  *****
+   ***
+    *
+  * **Logic & Approach:** Flips the pyramid layout by executing the row sequence backwards from N down to 1. The core math formulas internally remain completely unchanged (N - i for leading spaces, 2 * i - 1 for center-aligned stars).
+ * **Dry Run (N=5):**
+ * **Pass 1 (i=4):** Spaces (5-5=0), Stars (2(5)-1=9) \rightarrow *********
+ * **Pass 2 (i=4):** Spaces (5-4=1), Stars (2(4)-1=7) \rightarrow  *******
+ * **Pass 3 (i=3):** Spaces (5-3=2), Stars (2(3)-1=5) \rightarrow   *****
+ * **Pass 4 (i=2):** Spaces (5-2=3), Stars (2(2)-1=3) \rightarrow    ***
+ * **Pass 5 (i=1):** Spaces (5-1=4), Stars (2(1)-1=1) \rightarrow     *
+   
 
 
- * **Logic & Approach:** Flips the pyramid layout by executing the row sequence backwards from N down to 1. The core math formulas internally remain completely unchanged (N - i for leading spaces, 2 * i - 1 for center-aligned stars).
- * **Dry Run (N=3):**
-   * **Pass 1 (i=3):** Spaces (3-3=0), Stars (2(3)-1=5) \rightarrow *****
-   * **Pass 2 (i=2):** Spaces (3-2=1), Stars (2(2)-1=3) \rightarrow  ***
-   * **Pass 3 (i=1):** Spaces (3-1=2), Stars (2(1)-1=1) \rightarrow   *
+
 ### 7. Half Diamond
 text 
 *
+**
 ***
+****
 *****
+****
 ***
+**
 *
 
 
  * **Logic & Approach:** Stitches two distinct dynamic structures together continuously. The first code component builds an upright growing triangle scaling from row 1 to N. Instantly after, a second separate outer loop executes an inverted structural triangle stepping from row N-1 back down to 1.
- * **Dry Run (N=3):**
-   * **Top Half (i = 1 \rightarrow 3):** Prints *, then **, then ***
-   * **Bottom Half (i = 2 \rightarrow 1):** Prints **, then *
+ * **Dry Run (N=5):**
+   * **Top Half (i = 1 \rightarrow 5):** Prints *, then **, then ***, then ****, then *****
+   * **Bottom Half (i = 4 \rightarrow 1):** Prints ****, then *** , then **, then *
 ### 8. Diamond
 text
     
-   *
-  ***
- *****
-  ***
-   *
+    *
+   ***
+  *****
+ *******
+*********
+ *******
+  *****
+   ***
+    *
     
 
  * **Logic & Approach:** Creates a perfectly centered diamond figure by stacking a standard pyramid over an inverted pyramid. To avoid duplicate center lines, the top section evaluates from row 1 up to N, whereas the inverted bottom section scales down cleanly from N-1 down to 1.
- * **Dry Run (N=3):**
-   * **Top Half (i = 1 \rightarrow 3):** Generates   *,  ***, *****
-   * **Bottom Half (i = 2 \rightarrow 1):** Generates  ***,   *
+ * **Dry Run (N=5):**
+   * **Top Half (i = 1 \rightarrow 5):** Generates   *,  ***, *****,  *******, *********
+   * **Bottom Half (i = 4 \rightarrow 1):** Generates  *******, *****, ***,   *
 ## 🛠️ Core Concepts Learned
  * **Loop Nesting:** Mastering outer loop rows and inner loop column mechanics.
  * **Conditional Printing:** Using boundaries to craft hollow spaces and unique geometric structures.
